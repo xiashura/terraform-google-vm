@@ -118,7 +118,7 @@ variable "resource_policies" {
 }
 
 variable "tags" {
-  description = "(Optional) A string of tags vm"
-  type = string
+  description = "(Optional) A list of tags vm"
+  type = list(string)
   default = ""
 }
