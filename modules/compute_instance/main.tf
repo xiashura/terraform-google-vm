@@ -51,6 +51,7 @@ resource "google_compute_instance_from_template" "compute_instance" {
   deletion_protection = var.deletion_protection
   resource_policies   = var.resource_policies
 
+  tags = var.tags
 
   dynamic "network_interface" {
     for_each = local.network_interface

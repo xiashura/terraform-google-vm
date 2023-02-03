@@ -116,3 +116,9 @@ variable "resource_policies" {
   type        = list(string)
   default     = []
 }
+
+variable "tags" {
+  description = "(Optional) A string of tags vm"
+  type = string
+  default = ""
+}
