@@ -53,6 +53,16 @@ resource "google_compute_instance_from_template" "compute_instance" {
 
   tags = var.tags
 
+
+
+  dynamic "service_account" {
+    for_each = var.service_account == null ? [] : [var.service_account]
+    content {
+      email  = lookup(service_account.value, "email", null)
+      scopes = lookup(service_account.value, "scopes", null)
+    }
+  }
+
   dynamic "network_interface" {
     for_each = local.network_interface
 
